@@ -67,7 +67,7 @@ function addEmployee () {
         }
         else if (newEmployee.name === "Done!") {
             createHTML (outputPath, render(myTeam));
-            console.log(myTeam);
+            // console.log(myTeam);
         };
     });
 };
@@ -97,6 +97,35 @@ function engineerInfo() {
     ]).then(function(answers) {
         let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
         myTeam.push(engineer);
+        addEmployee();
+    });
+};
+
+function internInfo() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your intern's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is your intern's ID?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is your intern's email?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What is your intern's school?",
+            name: "school",
+        },
+    ]).then(function(answers) {
+        let intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+        myTeam.push(intern);
         addEmployee();
     });
 };
