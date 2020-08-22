@@ -16,17 +16,17 @@ const myTeam = [];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-function gatherInformation() {
+function managerInfo() {
     console.log("Please build your team:");
     inquirer.prompt([
         {
             type: "input",
-            message: "What is your manager name?",
+            message: "What is your manager's name?",
             name: "name"
         },
         {
             type: "input",
-            message: "What is your manager's id",
+            message: "What is your manager's ID?",
             name: "id",
         },
         {
@@ -36,14 +36,54 @@ function gatherInformation() {
         },
         {
             type: "input",
-            message: "What is your manager's office number",
+            message: "What is your manager's office number?",
             name: "number",
         },
     ]).then(function(answers) {
         let manager = new Manager(answers.name, answers.id, answers.email, answers.number)
         myTeam.push(manager);
         console.log(myTeam);
+        createHTML (outputPath, render(myTeam));
     })
+};
+
+function engineerInfo() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your engineer's name?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is your engineer's ID?",
+            name: "id",
+        },
+        {
+            type: "input",
+            message: "What is your engineer's email?",
+            name: "email"
+        },
+        {
+            type: "input",
+            message: "What is your engineer's Github username?",
+            name: "github",
+        },
+    ]).then(function(answers) {
+        let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
+        myTeam.push(engineer);
+        console.log(myTeam);
+        createHTML (outputPath, render(myTeam));
+    });
+};
+
+function createHTML(fileName, data) {
+    fs.writeFile(fileName, data, "utf8", function (err) {
+        if (err) {
+            throw err;
+        }
+        console.log("Success!");
+    });
 };
 
 // After the user has input all employees desired, call the `render` function (required
@@ -65,4 +105,5 @@ function gatherInformation() {
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
-gatherInformation();
+managerInfo();
+engineerInfo();
