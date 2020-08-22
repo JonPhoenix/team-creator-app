@@ -42,9 +42,34 @@ function managerInfo() {
     ]).then(function(answers) {
         let manager = new Manager(answers.name, answers.id, answers.email, answers.number)
         myTeam.push(manager);
-        console.log(myTeam);
-        createHTML (outputPath, render(myTeam));
+        addEmployee();
     })
+};
+
+function addEmployee () {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Which type of team member would you like to add?",
+            name: "name",
+            choices: [
+                "Engineer", 
+                "Intern", 
+                "Done!"
+            ],
+        },
+    ]).then(function(newEmployee) {
+        if (newEmployee.name === "Engineer") {
+            engineerInfo();
+        }
+        else if (newEmployee.name === "Intern") {
+            internInfo();
+        }
+        else if (newEmployee.name === "Done!") {
+            createHTML (outputPath, render(myTeam));
+            console.log(myTeam);
+        };
+    });
 };
 
 function engineerInfo() {
@@ -72,8 +97,7 @@ function engineerInfo() {
     ]).then(function(answers) {
         let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
         myTeam.push(engineer);
-        console.log(myTeam);
-        createHTML (outputPath, render(myTeam));
+        addEmployee();
     });
 };
 
@@ -85,6 +109,8 @@ function createHTML(fileName, data) {
         console.log("Success!");
     });
 };
+
+managerInfo();
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -105,5 +131,3 @@ function createHTML(fileName, data) {
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
-managerInfo();
-engineerInfo();
