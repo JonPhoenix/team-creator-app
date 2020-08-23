@@ -21,23 +21,50 @@ function managerInfo() {
     inquirer.prompt([
         {
             type: "input",
+            name: "name",
             message: "What is your manager's name?",
-            name: "name"
+            validate: function (answer) {
+                if (answer !== '') {
+                    return true;
+                }
+                return 'Enter at least one character.';
+            },
         },
         {
             type: "input",
-            message: "What is your manager's ID?",
             name: "id",
+            message: "What is your manager's ID?",
+            validate: function (answer) {
+                const valid = answer.match(/^[1-9]\d*$/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a number greater than 0.';
+            },
         },
         {
             type: "input",
+            name: "email",
             message: "What is your manager's email?",
-            name: "email"
+            validate: function (answer) {
+                const valid = answer.match(/\S+@\S+\.\S+/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a valid email address';
+            },
         },
         {
             type: "input",
-            message: "What is your manager's office number?",
             name: "number",
+            message: "What is your manager's office number?",
+            validate: function (answer) {
+                const valid = answer.match(/^[1-9]\d*$/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a number greater than 0.';
+            },
         },
     ]).then(function(answers) {
         let manager = new Manager(answers.name, answers.id, answers.email, answers.number)
