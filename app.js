@@ -77,12 +77,12 @@ function addEmployee () {
     inquirer.prompt([
         {
             type: "list",
-            message: "Which type of team member would you like to add?",
             name: "name",
+            message: "Which type of team member would you like to add?",
             choices: [
                 "Engineer", 
                 "Intern", 
-                "Done!"
+                "My team is complete!"
             ],
         },
     ]).then(function(newEmployee) {
@@ -92,9 +92,8 @@ function addEmployee () {
         else if (newEmployee.name === "Intern") {
             internInfo();
         }
-        else if (newEmployee.name === "Done!") {
+        else if (newEmployee.name === "My team is complete!") {
             createHTML (outputPath, render(myTeam));
-            // console.log(myTeam);
         };
     });
 };
@@ -103,23 +102,49 @@ function engineerInfo() {
     inquirer.prompt([
         {
             type: "input",
+            name: "name",
             message: "What is your engineer's name?",
-            name: "name"
+            validate: function (answer) {
+                if (answer !== '') {
+                    return true;
+                }
+                return 'Enter at least one character.';
+            },
         },
         {
             type: "input",
-            message: "What is your engineer's ID?",
             name: "id",
+            message: "What is your engineer's ID?",
+            validate: function (answer) {
+                const valid = answer.match(/^[1-9]\d*$/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a number greater than 0.';
+            },
         },
         {
             type: "input",
+            name: "email",
             message: "What is your engineer's email?",
-            name: "email"
+            validate: function (answer) {
+                const valid = answer.match(/\S+@\S+\.\S+/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a valid email address';
+            },
         },
         {
             type: "input",
-            message: "What is your engineer's Github username?",
             name: "github",
+            message: "What is your engineer's Github username?",
+            validate: function (answer) {
+                if (answer !== '') {
+                    return true;
+                }
+                return 'Enter at least one character.';
+            },
         },
     ]).then(function(answers) {
         let engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
@@ -133,22 +158,48 @@ function internInfo() {
         {
             type: "input",
             message: "What is your intern's name?",
-            name: "name"
+            name: "name",
+            validate: function (answer) {
+                if (answer !== '') {
+                    return true;
+                }
+                return 'Enter at least one character.';
+            },
         },
         {
             type: "input",
             message: "What is your intern's ID?",
             name: "id",
+            validate: function (answer) {
+                const valid = answer.match(/^[1-9]\d*$/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a number greater than 0.';
+            },
         },
         {
             type: "input",
             message: "What is your intern's email?",
-            name: "email"
+            name: "email",
+            validate: function (answer) {
+                const valid = answer.match(/\S+@\S+\.\S+/);
+                if (valid) {
+                    return true;
+                }
+                return 'Enter a valid email address';
+            },
         },
         {
             type: "input",
             message: "What is your intern's school?",
             name: "school",
+            validate: function (answer) {
+                if (answer !== '') {
+                    return true;
+                }
+                return 'Enter at least one character.';
+            },
         },
     ]).then(function(answers) {
         let intern = new Intern(answers.name, answers.id, answers.email, answers.school)
