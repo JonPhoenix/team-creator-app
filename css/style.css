@@ -5,26 +5,25 @@
   box-sizing: border-box;
 }
 
-body {
-    align-content: center;
-    padding: 40px;
-}
-
-.wrapper {
+.card {
     margin: 40px;
-    font-size: 16px;
     align-content: center;
+    border-radius: 10px;
+    font-size: 16px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .team-area {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: minmax(350px, auto);
     align-content: center;
 }
 
 .team-heading {
-    padding: 50px;
     font-size: 40px;
-    text-align: center;
+    text-align: left;
     font-weight: normal;
     color: lightskyblue;
     background-color: #0D47A1;
@@ -45,21 +44,15 @@ h3 {
     font-size: 20px;
 }
 
-.card {
-
-}
-
 .card-header {
-    padding: 20px;
+    padding: 10px;
     color: white;
     text-align: center;
-    background-color: #0D47A1;
+    background-color: #062961;
 }
 
 .employee-card {
-    min-width: 200px;
     border: none;
-    margin: 20px;
     font-size: 16px;
     text-align: left;
     color: slategray;
@@ -70,7 +63,7 @@ h3 {
 
 /* Maintains side margins - small view ports */
 @media only screen and (max-width: 980px) {
-    .wrapper { 
-        margin: 0 20px;
+    .team-area { 
+        margin: 0;
     }
 }
