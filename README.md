@@ -30,7 +30,7 @@
 
   ![Team Creator App](assets/team-engine-app-demo.gif)
 
-  When the application finishes, the command-line interface (CLI) will look similar to this preview:
+  A **validation** method has been coded in the app to ensure that the information provided has the expected format. When the application completes its intended function, the command-line interface (CLI) will look similar to this preview:
 
   ![Team Creator App](assets/team-creator-app-2.png)
 
