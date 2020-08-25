@@ -8,10 +8,10 @@
 
   The **Team Creator App** has been created with **JavaScript**, **Node.js**, **ES6+**, using the standard library package **fs (file system)**, installing the [**Inquirer** package](https://www.npmjs.com/package/inquirer) and the [**Jest** package](https://www.npmjs.com/package/jest) as dependencies.
 
-  This command-line application will run in Terminal (Mac), Git Bash (Windows), and VSCode (Mac & Windows). The final **team.html** file will look similar to this example:
+  This command-line application will run in Terminal (Mac), Git Bash (Windows), and VSCode (Mac & Windows). The final deployed **team.html** file will look similar to this preview:
 
 
-  !
+  ![Team Creator App](assets/team-creator-app-1.png)
 
 
   ## Table of Contents
@@ -28,15 +28,15 @@
   ## Usage
   How this application can be used: Input **node** **index.js** in the command-line. The following **walk-through demo** shows the app functionality:
 
-  !
+  ![Team Creator App](assets/team-engine-app-demo.gif)
 
   When the application finishes, the command-line interface (CLI) will look similar to this preview:
 
-  !
+  ![Team Creator App](assets/team-creator-app-2.png)
 
-  Once the new **team.html** file is successfully created, it will be placed in the provided **output** directory, when the file is open in the browser it will look similar to this example:
+  Once the new **team.html** file is successfully created, it will be placed in the provided **output** directory, similar to this preview:
 
-  !
+  ![Team Creator App](assets/team-creator-app-3.png)
 
   ## License
     MIT
