@@ -45,7 +45,8 @@
     Jon Phoenix
 
   ## Tests
-  Use this command to run a test: **npm** **run** **test** in the Command-Line Interface. The tests for the created classes must all pass.
+  Use this command to run a test: **npm** **run** **test** in the Command-Line Interface.
+  The tests for the created classes must all pass.
 
   ## Questions
   
