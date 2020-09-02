@@ -38,6 +38,12 @@
 
   ![Team Creator App](assets/team-creator-app-3.png)
 
+  The following video demonstrates the entirety of the app's functionality:
+
+  [**Team Creator App Video Demo**](https://drive.google.com/file/d/1rDYWMNk1IfOIFOYdTShP_2YFlb9HPTwE/view?usp=sharing)
+
+- - -
+
   ## License
     MIT
 
@@ -48,6 +54,8 @@
   Use this command to run a test: **npm** **run** **test** in the Command-Line Interface.
   The tests for the created classes must all pass.
 
+- - -
+
   ## Questions
   
  ![GitHub Badge](https://img.shields.io/badge/Github-JonPhoenix-0298c3)
@@ -57,6 +65,8 @@
  Application repository: https://github.com/JonPhoenix/team-creator-app
   
  For further questions, please contact the author at: jonphx@uw.edu
+
+- - -
 
   ## References
   ```
@@ -71,3 +81,4 @@
   * screencastify.com
 
   ```
+  - - -
